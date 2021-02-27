@@ -1,0 +1,41 @@
+
+  <ion-menu side="start" contentId="content" menuId="home-menu" swipeGesture="true">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="true" *ngFor="let p of pages">
+          <ion-item (click)="onItemClick(p.url)" routerDirection="root" [class.active-item]="selectedPath.includes(p.url)">
+            <ion-label>
+               {{ p.title }}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+        <ion-item tappable routerLink="/login" routerDirection="root">
+          <ion-icon name="log-out" slot="start"></ion-icon>
+            Logout
+        </ion-item>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-menu side="end" contentId="content" menuId="home-right" swipeGesture="true">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Menu Right</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-label> This is a totally different menu :D</ion-label>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content"></ion-router-outlet>
+
